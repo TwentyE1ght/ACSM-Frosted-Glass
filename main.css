@@ -1,53 +1,301 @@
-/*
-
-    TO Import this time add this to your custom CSS in Server > Options > Theme > Custom CSS
-    ! USE THEME TYPE DARK !
-    @import url("https://twentye1ght.github.io/ACSM-Frosted-Glass/main.css");
-
-*/
-/*
-.bg-primary, .btn-primary, .badge-primary, .dropdown-item:hover, .dropdown-item:focus {
-    border-color: var(--border-color) !important;
-    background: #fff2 !important;
-    backdrop-filter: blur(2em);
+:root {
+    --base-color: rgb(255, 0, 139);
+    --base-overlay: rgba(255, 255, 255, 0.1);
+    --nav-overlay: rgba(255, 255, 255, 0.1);
+    --border-color: rgba(255, 255, 255, 0.1);
+    --dd-color: rgb(70, 70, 70);
+    --bg-img: url("https://twentye1ght.github.io/ACSM-Frosted-Glass/default-bg.jpg");
+    --bg-blur: 8px;
+    --bg-opacity: 0.4;
+    --base-blur: 2em;
+    --border-radius: 12px;
 }
 
-.navbar.bg-primary, .border-primary, .badge-primary-border {
-    border-color: var(--border-color) !important;
+/* Body */
+body {
+    position: relative;
+    z-index: 0;
+    margin: 0;
 }
 
-.text-primary, a:not(.btn):not(.nav-link):not(.navbar-brand):not(.dropdown-item):not(.text-white):not(.text-danger):not(.fc-event):not(.page-link), .nav-pills a:not(.active), .driver-link:hover, .row-link:hover {
-    color: var(--border-color) !important;
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: var(--bg-img);
+    filter: blur(var(--bg-blur)) brightness(var(--bg-opacity));
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    z-index: -1;
 }
 
-.dropdown-item:active, .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-    background-color: var(--border-color) !important;
+h1, h2, h3, h4, h5, h6, .navbar-brand {
+    font-weight: bold;
 }
 
-#event-title:hover {
-    color: var(--border-color) !important;
+code {
+    background-color: var(--base-overlay);
+    border: 1px solid var(--border-color);
+}
+
+/* Navbar */
+.navbar.bg-primary {
+    background-color: var(--nav-overlay) !important;
+    backdrop-filter: blur(var(--base-blur)) !important;
+    border: none;
+    border-bottom: 1px solid var(--border-color) !important;
+}
+
+/* Container */
+body > .container, body > .container-fluid {
+    position: relative;
+    padding: 1.25rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 24px;
+    background-color: var(--base-overlay) !important;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius) !important;
+}
+
+body > .container::before, body > .container-fluid::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(var(--base-blur));
+    z-index: -1;
+    border-radius: var(--border-radius);
+}
+
+body > .container-fluid {
+    position: absolute;
+    top: 58px;
+    margin: 0 !important;
+    border: none;
+    border-radius: 0 !important;
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: var(--base-overlay) !important;
+    backdrop-filter: blur(var(--base-blur)) !important;
+    border: none !important;
+}
+
+.sidebar-sticky {
+    top: 60px;
 }
 
 .sidebar .nav-pills .nav-link.active {
     color: #fff;
-}
-*/
-
-:root {
-    --base-color: rgb(243, 181, 255);
-    --base-overlay: rgba(255, 255, 255, 0.1);
-    --border-color: rgba(255, 255, 255, 0.2);
+    background-color: var(--base-color);
+    border-radius: var(--border-radius) !important;
 }
 
+/* Modal */
+.modal-content {
+    background-color: var(--base-overlay);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius) !important;
+    backdrop-filter: blur(var(--base-blur));
+}
 
-/* Navbar */
-.navbar.bg-primary {
+.img-map-preview {
+    background-color: var(--base-overlay);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius) !important;
+    max-height: 400px;
+    padding: 8px;
+}
+
+/* Navigation */
+.nav-tabs {
+    border-color: var(--border-color) !important;
+}
+
+.nav-tabs .nav-link {
+    color: #fff;
+}
+
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+    background-color: var(--base-overlay);
+    border-color: var(--border-color);
+}
+
+.nav-tabs .nav-link, .nav-tabs .nav-link.disabled, .nav-tabs .nav-link.disabled:hover, .nav-tabs .nav-link.disabled:focus {
+    border-color: var(--border-color);
+}
+
+/* Dropdown */
+.dropdown-menu {
+    background-color: var(--dd-color) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: var(--border-radius) !important;
+}
+
+/* Cards */
+.card {
     background-color: var(--base-overlay) !important;
-    backdrop-filter: blur(16px) !important;
+    backdrop-filter: blur(var(--base-blur)) !important;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius) !important;
+}
+
+.card-header:first-child {
+    background-color: var(--base-overlay);
+    border: none !important;
+    border-top-left-radius: var(--border-radius) !important;
+    border-top-right-radius: var(--border-radius) !important;
+}
+
+.border-primary {
+    border-color: var(--base-color);
+}
+
+/* Table */
+.table {
+    background-color: var(--base-overlay);
+    border: 1px solid var(--border-color);
+}
+
+.table thead th {
+    background-color: var(--base-overlay);
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: var(--base-overlay);
+}
+
+.table-bordered th, .table-bordered td {
+    border: 1px solid var(--border-color);
 }
 
 /* Buttons */
-.btn-primary .badge-primary {
+.bg-primary, .btn-primary, .badge-primary, .dropdown-item:hover, .dropdown-item:focus {
     background-color: var(--base-color) !important;
     border: 1px solid var(--border-color) !important;
+}
+
+.driver-link:hover, .row-link:hover, a:not(.btn):not(.nav-link):not(.navbar-brand):not(.dropdown-item):not(.text-white):not(.text-danger):not(.fc-event):not(.page-link) {
+    color: var(--base-color) !important;
+}
+
+/* Input fields */
+.form-control, .ms-selectable, .ms-selection, .ms-container *:not(.ms-hover):not(span):not(.bg-mod):not(.bg-dlc), .select2-selection, .select2-dropdown, .select2-dropdown input.select2-search__field {
+    background-color: var(--base-overlay) !important;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    box-shadow: none !important;
+}
+
+.ms-list > li {
+    border: 1px solid var(--border-color) !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+.select2-container--bootstrap4 .select2-dropdown {
+    background-color: var(--base-overlay) !important;
+    border: 1px solid var(--border-color);
+    backdrop-filter: blur(var(--base-blur));
+}
+
+.select2-container--bootstrap4 .select2-results__option--highlighted, .select2-container--bootstrap4 .select2-results__option--highlighted.select2-results__option[aria-selected="true"],
+.select2-container--bootstrap4 .select2-dropdown .select2-results__option[aria-selected="true"] {
+    background-color: var(--base-overlay) !important;
+}
+
+/* Change the background of the select dropdown */
+select {
+    background-color: var(--base-overlay) !important; /* Your desired color */
+    backdrop-filter: blur(var(--base-blur)) !important; /* If you want glass effect */
+    border: 1px solid var(--border-color) !important;
+    border-radius: var(--border-radius) !important;
+    color: white !important; /* Text color */
+    padding: 8px 12px;
+}
+
+/* Style the dropdown options */
+select option {
+    background-color: var(--dd-color) !important; /* Darker background for options */
+    color: white !important;
+}
+
+/* For modern browsers, you can style the dropdown panel */
+select:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--base-color);
+}
+
+.input-group-text {
+    background-color: var(--base-overlay);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+}
+
+.custom-file-label {
+    background-color: var(--base-overlay);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+}
+
+.custom-file-label::after {
+    background-color: var(--base-overlay);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    color: #fff !important;
+}
+
+.custom-control-label::before {
+    background-color: var(--base-overlay);
+    border: 1px solid var(--border-color);
+}
+
+.custom-switch .custom-control-label::after {
+    background-color: var(--base-overlay);
+}
+
+.custom-control-input:checked ~ .custom-control-label::before {
+    background-color: var(--base-color);
+    border-color: var(--base-color);
+}
+
+/* Scrollbars */
+* {
+    --sb-track-color: rgba(0, 0, 0, 0);
+    --sb-thumb-color: var(--base-overlay);
+    --sb-size: 8px;
+}
+
+*::-webkit-scrollbar {
+    width: var(--sb-size);
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--sb-track-color);
+    border-radius: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+    border-radius: 10px;
+    border: 2px solid rgba(0, 0, 0, 0);
+}
+
+*::-webkit-resizer {
+    background-color: var(--sb-track-color);
+    color: var(--sb-track-color);
+    border-radius: 10px;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+    * {
+        scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+    }
 }
