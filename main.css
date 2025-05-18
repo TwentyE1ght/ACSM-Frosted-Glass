@@ -1,6 +1,6 @@
 :root {
     --base-color: #EE9A17;
-    --border-color: darken(var(--base-color), 10%);
+    --border-color: #EE9A17;
 }
 
 .bg-primary, .btn-primary, .badge-primary, .dropdown-item:hover, .dropdown-item:focus {
