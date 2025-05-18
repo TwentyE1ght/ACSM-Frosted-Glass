@@ -1,11 +1,15 @@
-:root {
-    --base-color: #EE9A17;
-    --border-color: #c47d0e;
-}
+/*
 
+    TO Import this time add this to your custom CSS in Server > Options > Theme > Custom CSS
+    ! USE THEME TYPE DARK !
+    @import url("https://twentye1ght.github.io/ACSM-Frosted-Glass/main.css");
+
+*/
+/*
 .bg-primary, .btn-primary, .badge-primary, .dropdown-item:hover, .dropdown-item:focus {
-    background-color: var(--border-color) !important;
     border-color: var(--border-color) !important;
+    background: #fff2 !important;
+    backdrop-filter: blur(2em);
 }
 
 .navbar.bg-primary, .border-primary, .badge-primary-border {
@@ -26,4 +30,24 @@
 
 .sidebar .nav-pills .nav-link.active {
     color: #fff;
+}
+*/
+
+:root {
+    --base-color: rgb(243, 181, 255);
+    --base-overlay: rgba(255, 255, 255, 0.1);
+    --border-color: rgba(255, 255, 255, 0.2);
+}
+
+
+/* Navbar */
+.navbar.bg-primary {
+    background-color: var(--base-overlay);
+    backdrop-filter: blur(16px);
+}
+
+/* Buttons */
+.btn-primary .badge-primary {
+    background-color: var(--base-color);
+    border: 1px solid var(--border-color);
 }
