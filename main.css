@@ -1,1 +1,29 @@
+:root {
+    --base-color: #EE9A17;
+    --border-color: darken(var(--base-color), 10%);
+}
 
+.bg-primary, .btn-primary, .badge-primary, .dropdown-item:hover, .dropdown-item:focus {
+    background-color: var(--base-color) !important;
+    border-color: var(--border-color) !important;
+}
+
+.navbar.bg-primary, .border-primary, .badge-primary-border  {
+    border-color: var(--border-color) !important;
+}
+
+.text-primary, a:not(.btn):not(.nav-link):not(.navbar-brand):not(.dropdown-item):not(.text-white):not(.text-danger):not(.fc-event):not(.page-link), .nav-pills a:not(.active), .driver-link:hover, .row-link:hover {
+    color: var(--base-color) !important;
+}
+
+.dropdown-item:active, .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    background-color: var(--base-color) !important;
+}
+
+#event-title:hover{
+    color: var(--border-color) !important;
+}
+
+.sidebar .nav-pills .nav-link.active {
+    color: #fff;
+}
