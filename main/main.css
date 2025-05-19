@@ -379,6 +379,9 @@ select:focus {
     border-top-right-radius: var(--border-radius);
     border-top-left-radius: var(--border-radius);
 }
+.note-toolbar.card-header{
+    border-color: var(--base-border);
+}
 
 .note-editor.note-frame .note-editing-area .note-editable, .note-editor.note-airframe .note-editing-area .note-editable {
     background-color: transparent;
