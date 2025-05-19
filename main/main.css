@@ -1,14 +1,15 @@
 :root {
-    --base-color: rgb(255, 0, 139);
+    --base-color: rgb(163,104,230);
     --base-overlay: rgba(255, 255, 255, 0.1);
-    --nav-overlay: rgba(255, 255, 255, 0.1);
+    --base-blur: 2em;
+    --base-border: 1px solid var(--border-color);
     --border-color: rgba(255, 255, 255, 0.1);
-    --dd-color: rgb(70, 70, 70);
+    --border-radius: 12px;
     --bg-img: url("https://twentye1ght.github.io/ACSM-Frosted-Glass/default-bg.jpg");
     --bg-blur: 8px;
     --bg-opacity: 0.4;
-    --base-blur: 2em;
-    --border-radius: 12px;
+    --card-icon-color: rgb(173,127,218);
+    --dropdown-bg-color: rgba(255, 255, 255, 0.2);
 }
 
 /* Body */
@@ -39,15 +40,15 @@ h1, h2, h3, h4, h5, h6, .navbar-brand {
 
 code {
     background-color: var(--base-overlay);
-    border: 1px solid var(--border-color);
+    border: var(--base-border);
 }
 
 /* Navbar */
 .navbar.bg-primary {
-    background-color: var(--nav-overlay) !important;
+    background-color: var(--base-overlay) !important;
     backdrop-filter: blur(var(--base-blur)) !important;
     border: none;
-    border-bottom: 1px solid var(--border-color) !important;
+    border-bottom: var(--base-border) !important;
 }
 
 /* Container */
@@ -58,7 +59,7 @@ body > .container, body > .container-fluid {
     margin-right: auto;
     margin-bottom: 24px;
     background-color: var(--base-overlay) !important;
-    border: 1px solid var(--border-color);
+    border: var(--base-border);
     border-radius: var(--border-radius) !important;
 }
 
@@ -75,8 +76,7 @@ body > .container::before, body > .container-fluid::before {
 }
 
 body > .container-fluid {
-    position: absolute;
-    top: 58px;
+    top: -58px;
     margin: 0 !important;
     border: none;
     border-radius: 0 !important;
@@ -102,14 +102,14 @@ body > .container-fluid {
 /* Modal */
 .modal-content {
     background-color: var(--base-overlay);
-    border: 1px solid var(--border-color);
+    border: var(--base-border);
     border-radius: var(--border-radius) !important;
     backdrop-filter: blur(var(--base-blur));
 }
 
 .img-map-preview {
     background-color: var(--base-overlay);
-    border: 1px solid var(--border-color);
+    border: var(--base-border);
     border-radius: var(--border-radius) !important;
     max-height: 400px;
     padding: 8px;
@@ -135,16 +135,83 @@ body > .container-fluid {
 
 /* Dropdown */
 .dropdown-menu {
-    background-color: var(--dd-color) !important;
-    border: 1px solid var(--border-color) !important;
+    position: relative;
+    padding: 0;
+    background: var(--dropdown-bg-color) !important;
+    border: var(--base-border) !important;
     border-radius: var(--border-radius) !important;
+    overflow: hidden;
+    z-index: 1050;
+
+    /* Frosted glass effect (doesn't really work) */
+    backdrop-filter: blur(var(--base-blur));
+    -webkit-backdrop-filter: blur(var(--base-blur));
+}
+
+.dropdown-menu::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--dropdown-bg-color) !important;
+    z-index: -1;
+    border-radius: inherit;
+}
+
+.dropdown-menu::before {
+    content: "";
+    position: fixed;
+    top: calc(-10 * var(--base-blur));
+    left: calc(-10 * var(--base-blur));
+    right: calc(-10 * var(--base-blur));
+    bottom: calc(-10 * var(--base-blur));
+    background-image: var(--bg-img);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    filter: blur(var(--base-blur)) brightness(var(--bg-opacity));
+    z-index: -2;
+}
+
+.dropdown-item {
+    position: relative;
+    z-index: 2;
+    padding: 8px 16px;
+    transition: all 0.2s ease;
+}
+
+.dropdown-item:first-child {
+    padding-top: 16px;
+}
+
+.dropdown-item:last-child {
+    padding-bottom: 16px;
+}
+
+.dropdown-item:hover, .dropdown-item:focus {
+    border: none !important;
+}
+
+.dropdown-divider {
+    border-color: var(--border-color);
+}
+
+/* fallback */
+@supports not (backdrop-filter: blur(1px)) {
+    .dropdown-menu {
+        background: rgba(40, 40, 40, 0.95) !important;
+    }
+    .dropdown-menu::before {
+        opacity: 0.6;
+    }
 }
 
 /* Cards */
 .card {
     background-color: var(--base-overlay) !important;
-    backdrop-filter: blur(var(--base-blur)) !important;
-    border: 1px solid var(--border-color);
+    border: var(--base-border);
     border-radius: var(--border-radius) !important;
 }
 
@@ -162,7 +229,7 @@ body > .container-fluid {
 /* Table */
 .table {
     background-color: var(--base-overlay);
-    border: 1px solid var(--border-color);
+    border: var(--base-border);
 }
 
 .table thead th {
@@ -174,36 +241,36 @@ body > .container-fluid {
 }
 
 .table-bordered th, .table-bordered td {
-    border: 1px solid var(--border-color);
+    border: var(--base-border);
 }
 
 /* Buttons */
 .bg-primary, .btn-primary, .badge-primary, .dropdown-item:hover, .dropdown-item:focus {
-    background-color: var(--base-color) !important;
-    border: 1px solid var(--border-color) !important;
+    background-color: var(--base-color);
+    border: var(--base-border);
 }
 
 .driver-link:hover, .row-link:hover, a:not(.btn):not(.nav-link):not(.navbar-brand):not(.dropdown-item):not(.text-white):not(.text-danger):not(.fc-event):not(.page-link) {
-    color: var(--base-color) !important;
+    color: var(--card-icon-color) !important;
 }
 
 /* Input fields */
 .form-control, .ms-selectable, .ms-selection, .ms-container *:not(.ms-hover):not(span):not(.bg-mod):not(.bg-dlc), .select2-selection, .select2-dropdown, .select2-dropdown input.select2-search__field {
     background-color: var(--base-overlay) !important;
-    border: 1px solid var(--border-color);
+    border: var(--base-border);
     border-radius: var(--border-radius);
     box-shadow: none !important;
 }
 
 .ms-list > li {
-    border: 1px solid var(--border-color) !important;
+    border: var(--base-border) !important;
     border-radius: 0 !important;
     box-shadow: none !important;
 }
 
 .select2-container--bootstrap4 .select2-dropdown {
     background-color: var(--base-overlay) !important;
-    border: 1px solid var(--border-color);
+    border: var(--base-border);
     backdrop-filter: blur(var(--base-blur));
 }
 
@@ -212,23 +279,20 @@ body > .container-fluid {
     background-color: var(--base-overlay) !important;
 }
 
-/* Change the background of the select dropdown */
 select {
-    background-color: var(--base-overlay) !important; /* Your desired color */
-    backdrop-filter: blur(var(--base-blur)) !important; /* If you want glass effect */
-    border: 1px solid var(--border-color) !important;
+    background-color: var(--base-overlay) !important;
+    backdrop-filter: blur(var(--base-blur)) !important;
+    border: var(--base-border) !important;
     border-radius: var(--border-radius) !important;
-    color: white !important; /* Text color */
+    color: white !important;
     padding: 8px 12px;
 }
 
-/* Style the dropdown options */
 select option {
-    background-color: var(--dd-color) !important; /* Darker background for options */
+    background-color: var(--dropdown-bg-color) !important;
     color: white !important;
 }
 
-/* For modern browsers, you can style the dropdown panel */
 select:focus {
     outline: none;
     box-shadow: 0 0 0 2px var(--base-color);
@@ -236,13 +300,13 @@ select:focus {
 
 .input-group-text {
     background-color: var(--base-overlay);
-    border: 1px solid var(--border-color);
+    border: var(--base-border);
     border-radius: var(--border-radius);
 }
 
 .custom-file-label {
     background-color: var(--base-overlay);
-    border: 1px solid var(--border-color);
+    border: var(--base-border);
     border-radius: var(--border-radius);
 }
 
@@ -254,7 +318,7 @@ select:focus {
 
 .custom-control-label::before {
     background-color: var(--base-overlay);
-    border: 1px solid var(--border-color);
+    border: var(--base-border);
 }
 
 .custom-switch .custom-control-label::after {
