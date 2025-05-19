@@ -1,5 +1,5 @@
 .btn, .btn:hover, .btn:active {
-    border: none;
+    border: none !important;
     border-radius: 30px;
 }
 

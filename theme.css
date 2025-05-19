@@ -1,4 +1,5 @@
 @import url("https://twentye1ght.github.io/ACSM-Frosted-Glass/main/main.css");
+@import url("https://twentye1ght.github.io/ACSM-Frosted-Glass/main/fg-buttons.css"); /* Remove this line if you want to revert to the old buttons. */
 
 :root {
     /* Variables */
@@ -13,6 +14,5 @@
     /* Background Variables*/
     --bg-img: url("https://twentye1ght.github.io/ACSM-Frosted-Glass/main/default-bg.jpg");
     --bg-blur: 8px;
-    --bg-opacity: 0.4;
-
+    --bg-brightness: 0.4;
 }
