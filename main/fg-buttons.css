@@ -1,1 +1,54 @@
+.btn, .btn:hover, .btn:active {
+    border: none;
+    border-radius: 30px;
+}
 
+.btn:not(.disabled):hover {
+    margin-top: 0;
+    border-bottom-width: 0;
+}
+
+.btn:not(.disabled):active {
+    margin-top: 0;
+    border-bottom-width: 0;
+}
+
+.btn-primary {
+    border-color: var(--base-color);
+    border: none !important;
+}
+
+.btn-primary:hover, .btn-primary:active {
+    border-color: var(--base-color) !important;
+    filter: brightness(1.1) !important;
+}
+
+.btn-secondary {
+    border-color: #6c757d;
+}
+
+.btn-success {
+    border-color: #28a745;
+}
+
+.btn-info {
+    border-color: #17a2b8;
+}
+
+.btn-danger {
+    border-color: #dc3545;
+}
+
+.btn-warning {
+    border-color: #ffc107;
+}
+
+.btn-light {
+    border-color: #f8f9fa;
+}
+
+.btn-dark {
+    border-color: #343a40;
+}
+
+/* Sidebar */

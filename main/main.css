@@ -1,15 +1,29 @@
+@import url("https://twentye1ght.github.io/ACSM-Frosted-Glass/main/fg-buttons");
+
 :root {
-    --base-color: rgb(163,104,230);
-    --base-overlay: rgba(255, 255, 255, 0.1);
-    --base-blur: 2em;
-    --base-border: 1px solid var(--border-color);
-    --border-color: rgba(255, 255, 255, 0.1);
-    --border-radius: 12px;
+    /* User Variables */
+    --primary-color: 163,104,230;
+    --overlay-color: 255, 255, 255;
+    --overlay-opacity: 0.1;
+    --blur: 2em;
+    --border-thickness: 1px;
+    --icon-color: 173,127,218;
+    --dropdown-bg-opacity: 0.2;
+
+    /* Background Variables*/
     --bg-img: url("https://twentye1ght.github.io/ACSM-Frosted-Glass/main/default-bg.jpg");
     --bg-blur: 8px;
     --bg-opacity: 0.4;
-    --card-icon-color: rgb(173,127,218);
-    --dropdown-bg-color: rgba(255, 255, 255, 0.2);
+
+    /* Variables */
+    --base-color: rgb(var(--primary-color));
+    --base-overlay: rgba(var(--overlay-color), var(--overlay-opacity));
+    --base-blur: var(--blur);
+    --base-border: var(--border-thickness) solid var(--border-color);
+    --border-color: rgba(var(--overlay-color), var(--overlay-opacity));
+    --border-radius: 12px;
+    --card-icon: rgb(var(--icon-color));
+    --dropdown-bg-color: rgba(var(--overlay-color), var(--dropdown-bg-opacity));
 }
 
 /* Body */
@@ -49,6 +63,11 @@ code {
     backdrop-filter: blur(var(--base-blur)) !important;
     border: none;
     border-bottom: var(--base-border) !important;
+}
+
+.badge {
+    position: relative;
+    bottom: 2px;
 }
 
 /* Container */
@@ -251,7 +270,7 @@ body > .container-fluid {
 }
 
 .driver-link:hover, .row-link:hover, a:not(.btn):not(.nav-link):not(.navbar-brand):not(.dropdown-item):not(.text-white):not(.text-danger):not(.fc-event):not(.page-link) {
-    color: var(--card-icon-color) !important;
+    color: var(--card-icon) !important;
 }
 
 /* Input fields */
