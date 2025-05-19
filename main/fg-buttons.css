@@ -52,3 +52,6 @@
 }
 
 /* Sidebar */
+.sidebar .nav-pills .nav-link.active {
+    border-radius: 30px;
+}

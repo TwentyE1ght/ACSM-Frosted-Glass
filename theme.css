@@ -2,17 +2,17 @@
 @import url("https://twentye1ght.github.io/ACSM-Frosted-Glass/main/fg-buttons.css"); /* Remove this line if you want to revert to the old buttons. */
 
 :root {
-    /* Variables */
-    --primary-color: 163,104,230;
-    --overlay-color: 255, 255, 255;
-    --overlay-opacity: 0.1;
-    --blur: 2em;
-    --border-thickness: 1px;
-    --icon-color: 173,127,218;
-    --dropdown-bg-opacity: 0.2;
+    /* User Variables */
+    --primary-color: 163,104,230;   /* RGB color for primary theme elements */
+    --overlay-color: 255, 255, 255; /* RGB color for overlays (e.g., cards, modals) */
+    --overlay-opacity: 0.1;         /* Opacity for overlay color */
+    --blur: 2em;                    /* Amount of blur for glass effect */
+    --border-thickness: 1px;        /* Thickness of borders */
+    --icon-color: 173,127,218;      /* RGB color for icons */
+    --dropdown-bg-opacity: 0.2;     /* Opacity for dropdown background */
 
-    /* Background Variables*/
-    --bg-img: url("https://twentye1ght.github.io/ACSM-Frosted-Glass/main/default-bg.jpg");
-    --bg-blur: 8px;
-    --bg-brightness: 0.4;
+    /* Background Variables */
+    --bg-img: url("https://twentye1ght.github.io/ACSM-Frosted-Glass/main/default-bg.jpg");  /* Background image URL */
+    --bg-blur: 8px;                 /* Blur applied to background image */
+    --bg-brightness: 0.4;           /* Brightness level of background image */
 }

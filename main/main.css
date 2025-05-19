@@ -113,7 +113,7 @@ body > .container-fluid {
 .sidebar .nav-pills .nav-link.active {
     color: #fff;
     background-color: var(--base-color);
-    border-radius: var(--border-radius) !important;
+    border-radius: var(--border-radius);
 }
 
 /* Modal */
@@ -243,10 +243,26 @@ body > .container-fluid {
     border-color: var(--base-color);
 }
 
-/* Table */
-.table {
+.card-img {
     background-color: var(--base-overlay);
     border: var(--base-border);
+    border-radius: var(--border-radius);
+}
+
+/* Lists */
+.list-group-item, .list-group-item:hover {
+    background: transparent;
+    border-color: var(--border-color);
+}
+
+/* Table */
+.table, .table-secondary, .table-secondary>th, .table-secondary>td {
+    background-color: var(--base-overlay);
+    border: var(--base-border);
+}
+
+.table-secondary {
+    color: #fff;
 }
 
 .table thead th {
@@ -296,6 +312,11 @@ body > .container-fluid {
     background-color: var(--base-overlay) !important;
 }
 
+.select2-container--bootstrap4 .select2-selection--single .select2-selection__rendered,
+.select2-container--bootstrap4 .select2-selection {
+    border: var(--base-border);
+}
+
 select {
     background-color: var(--base-overlay) !important;
     backdrop-filter: blur(var(--base-blur)) !important;
@@ -306,7 +327,7 @@ select {
 }
 
 select option {
-    background-color: var(--dropdown-bg-color) !important;
+    background-color: var(--base-overlay) !important;
     color: white !important;
 }
 
@@ -347,6 +368,43 @@ select:focus {
     border-color: var(--base-color);
 }
 
+.note-editor.note-frame, .note-editor.note-airframe{
+    background-color: var(--base-overlay);
+    border: var(--base-border);
+    border-radius: var(--border-radius);
+}
+
+.note-toolbar {
+    background-color: var(--base-overlay);
+    border-top-right-radius: var(--border-radius);
+    border-top-left-radius: var(--border-radius);
+}
+
+.note-editor.note-frame .note-editing-area .note-editable, .note-editor.note-airframe .note-editing-area .note-editable {
+    background-color: transparent;
+    color: #fff;
+}
+
+.note-editor.note-frame .note-statusbar .note-resizebar, .note-editor.note-airframe .note-statusbar .note-resizebar {
+    background-color: var(--base-overlay);
+    border: none !important;
+    padding: 0;
+}
+
+.note-popover .popover-content .note-dropdown-menu.note-check a i, .note-toolbar .note-dropdown-menu.note-check a i {
+    color: #fff !important;
+    visibility: unset;
+}
+
+.note-icon-menu-check::before {
+    display: none;
+}
+
+/* Random borders */
+hr, .border-left {
+    border-color: var(--border-color);
+}
+
 /* Scrollbars */
 * {
     --sb-track-color: rgba(0, 0, 0, 0);
@@ -379,4 +437,28 @@ select:focus {
     * {
         scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
     }
+}
+
+/* Other */
+pre {
+    background-color: var(--base-overlay);
+    border: var(--base-border);
+    border-radius: var(--border-radius);
+    padding: 16px;
+}
+
+/* Race control */
+.text-center.pl-5.pr-5 {
+    margin-top: 0 !important;
+}
+
+#map-col {
+    background-color: var(--base-overlay);
+    border: var(--base-border);
+    border-radius: var(--border-radius);
+    padding: 16px;
+}
+
+.race-control-event-info {
+    top: 48px;
 }
