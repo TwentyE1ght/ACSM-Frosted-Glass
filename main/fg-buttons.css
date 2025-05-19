@@ -51,7 +51,21 @@
     border-color: #343a40;
 }
 
+.form-control {
+    border-radius: 30px !important;
+}
+
 /* Sidebar */
 .sidebar .nav-pills .nav-link.active {
+    border-radius: 30px;
+}
+
+/* Notes */
+.note-toolbar .note-btn {
+    border-radius: 30px;
+}
+
+/* Badges */
+span.badge.badge-primary {
     border-radius: 30px;
 }

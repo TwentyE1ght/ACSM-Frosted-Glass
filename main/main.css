@@ -1,11 +1,11 @@
 :root {
     /* User Variables */
-    --primary-color: 163,104,230;
+    --primary-color: 163, 104, 230;
     --overlay-color: 255, 255, 255;
     --overlay-opacity: 0.1;
     --blur: 2em;
     --border-thickness: 1px;
-    --icon-color: 173,127,218;
+    --icon-color: 173, 127, 218;
     --dropdown-bg-opacity: 0.2;
 
     /* Background Variables*/
@@ -29,6 +29,7 @@ body {
     position: relative;
     z-index: 0;
     margin: 0;
+    padding: 0;
 }
 
 body::before {
@@ -69,6 +70,11 @@ code {
 }
 
 /* Container */
+body > .container {
+    border: var(--base-border);
+    border-radius: var(--border-radius);
+}
+
 body > .container, body > .container-fluid {
     position: relative;
     padding: 1.25rem;
@@ -76,8 +82,6 @@ body > .container, body > .container-fluid {
     margin-right: auto;
     margin-bottom: 24px;
     background-color: var(--base-overlay) !important;
-    border: var(--base-border);
-    border-radius: var(--border-radius) !important;
 }
 
 body > .container::before, body > .container-fluid::before {
@@ -89,12 +93,16 @@ body > .container::before, body > .container-fluid::before {
     height: 100%;
     backdrop-filter: blur(var(--base-blur));
     z-index: -1;
+}
+
+body > .container::before {
     border-radius: var(--border-radius);
 }
 
+
 body > .container-fluid {
-    top: -58px;
     margin: 0 !important;
+    padding-top: 128px !important;
     border: none;
     border-radius: 0 !important;
 }
@@ -146,8 +154,9 @@ body > .container-fluid {
     border-color: var(--border-color);
 }
 
-.nav-tabs .nav-link, .nav-tabs .nav-link.disabled, .nav-tabs .nav-link.disabled:hover, .nav-tabs .nav-link.disabled:focus {
-    border-color: var(--border-color);
+.nav-tabs .nav-link, .nav-tabs .nav-link.disabled, .nav-tabs .nav-link.disabled:hover,
+.nav-tabs .nav-link.disabled:focus {
+    border-color: var(--border-color) !important;
 }
 
 /* Dropdown */
@@ -220,6 +229,7 @@ body > .container-fluid {
     .dropdown-menu {
         background: rgba(40, 40, 40, 0.95) !important;
     }
+
     .dropdown-menu::before {
         opacity: 0.6;
     }
@@ -243,6 +253,10 @@ body > .container-fluid {
     border-color: var(--base-color);
 }
 
+a.card.card--home:hover {
+    filter: brightness(1.2);
+}
+
 .card-img {
     background-color: var(--base-overlay);
     border: var(--base-border);
@@ -256,7 +270,7 @@ body > .container-fluid {
 }
 
 /* Table */
-.table, .table-secondary, .table-secondary>th, .table-secondary>td {
+.table, .table-secondary, .table-secondary > th, .table-secondary > td {
     background-color: var(--base-overlay);
     border: var(--base-border);
 }
@@ -288,7 +302,8 @@ body > .container-fluid {
 }
 
 /* Input fields */
-.form-control, .ms-selectable, .ms-selection, .ms-container *:not(.ms-hover):not(span):not(.bg-mod):not(.bg-dlc), .select2-selection, .select2-dropdown, .select2-dropdown input.select2-search__field {
+.form-control, .ms-selectable, .ms-selection, .ms-container *:not(.ms-hover):not(span):not(.bg-mod):not(.bg-dlc),
+.select2-selection, .select2-dropdown, .select2-dropdown input.select2-search__field {
     background-color: var(--base-overlay) !important;
     border: var(--base-border);
     border-radius: var(--border-radius);
@@ -307,9 +322,15 @@ body > .container-fluid {
     backdrop-filter: blur(var(--base-blur));
 }
 
-.select2-container--bootstrap4 .select2-results__option--highlighted, .select2-container--bootstrap4 .select2-results__option--highlighted.select2-results__option[aria-selected="true"],
+.select2-container--bootstrap4 .select2-results__option--highlighted,
+.select2-container--bootstrap4 .select2-results__option--highlighted.select2-results__option[aria-selected="true"],
 .select2-container--bootstrap4 .select2-dropdown .select2-results__option[aria-selected="true"] {
     background-color: var(--base-overlay) !important;
+}
+
+.select2-container--bootstrap4 .select2-dropdown .select2-results__option[aria-selected="true"] {
+    color: #fff !important;
+    background-color: rgba(var(--overlay-color), calc(var(--overlay-opacity) + 0.1)) !important;
 }
 
 .select2-container--bootstrap4 .select2-selection--single .select2-selection__rendered,
@@ -317,21 +338,12 @@ body > .container-fluid {
     border: var(--base-border);
 }
 
-select {
-    background-color: var(--base-overlay) !important;
-    backdrop-filter: blur(var(--base-blur)) !important;
-    border: var(--base-border) !important;
-    border-radius: var(--border-radius) !important;
-    color: white !important;
-    padding: 8px 12px;
-}
-
 select option {
-    background-color: var(--base-overlay) !important;
+    background-color: #444 !important;
     color: white !important;
 }
 
-select:focus {
+select.form-control:focus {
     outline: none;
     box-shadow: 0 0 0 2px var(--base-color);
 }
@@ -368,7 +380,9 @@ select:focus {
     border-color: var(--base-color);
 }
 
-.note-editor.note-frame, .note-editor.note-airframe{
+/* Note Editor */
+
+.note-editor.note-frame, .note-editor.note-airframe {
     background-color: var(--base-overlay);
     border: var(--base-border);
     border-radius: var(--border-radius);
@@ -379,11 +393,13 @@ select:focus {
     border-top-right-radius: var(--border-radius);
     border-top-left-radius: var(--border-radius);
 }
-.note-toolbar.card-header{
-    border-color: var(--base-border);
+
+.note-toolbar.card-header {
+    border-color: var(--border-color);
 }
 
-.note-editor.note-frame .note-editing-area .note-editable, .note-editor.note-airframe .note-editing-area .note-editable {
+.note-editor.note-frame .note-editing-area .note-editable,
+.note-editor.note-airframe .note-editing-area .note-editable {
     background-color: transparent;
     color: #fff;
 }
@@ -399,13 +415,20 @@ select:focus {
     visibility: unset;
 }
 
+.note-toolbar .note-btn {
+    background: var(--base-overlay);
+    border: var(--base-border);
+    color: #fff;
+    font-weight: 500;
+}
+
 .note-icon-menu-check::before {
     display: none;
 }
 
 /* Random borders */
 hr, .border-left {
-    border-color: var(--border-color);
+    border-color: var(--border-color) !important;
 }
 
 /* Scrollbars */
@@ -442,6 +465,16 @@ hr, .border-left {
     }
 }
 
+/* Badges */
+span.badge.badge-primary {
+    border-radius: var(--border-radius);
+}
+
+span.search-bool-toggle.cursor-pointer.badge.badge-pill.ml-1.badge-primary-border {
+    background-color: var(--base-overlay);
+    border: var(--base-border);
+}
+
 /* Other */
 pre {
     background-color: var(--base-overlay);
@@ -455,15 +488,21 @@ pre {
     margin-top: 0 !important;
 }
 
+#event-title {
+    font-weight: bold;
+}
+
 #map-col {
     background-color: var(--base-overlay);
     border: var(--base-border);
     border-radius: var(--border-radius);
     padding: 16px;
 }
+
 .road-temp-wrapper, .ambient-temp-wrapper {
     border-radius: 12px;
 }
+
 .race-control-event-info {
     top: 48px;
 }
