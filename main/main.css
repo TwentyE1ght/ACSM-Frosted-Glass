@@ -458,7 +458,9 @@ pre {
     border-radius: var(--border-radius);
     padding: 16px;
 }
-
+.road-temp-wrapper, .ambient-temp-wrapper {
+    border-radius: 12px;
+}
 .race-control-event-info {
     top: 48px;
 }
