@@ -7,6 +7,7 @@
     --border-thickness: 1px;
     --icon-color: 173, 127, 218;
     --dropdown-bg-opacity: 0.2;
+    --animation-speed: 0.1s;
 
     /* Background Variables*/
     --bg-img: url("https://twentye1ght.github.io/ACSM-Frosted-Glass/main/default-bg.jpg");
@@ -22,6 +23,8 @@
     --border-radius: 12px;
     --card-icon: rgb(var(--icon-color));
     --dropdown-bg-color: rgba(var(--overlay-color), var(--dropdown-bg-opacity));
+    --text-color: #eeeeee;
+    --text-color-hover: #fff;
 }
 
 /* Body */
@@ -74,6 +77,7 @@ body > .container {
     margin-top: 128px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 64px;
     border: var(--base-border);
     border-radius: var(--border-radius);
 }
@@ -101,6 +105,7 @@ body > .container::before {
 
 
 body > .container-fluid {
+    min-height: 100vh;
     margin: 0 !important;
     padding-top: 128px !important;
     border: none;
@@ -110,7 +115,6 @@ body > .container-fluid {
 /* Sidebar */
 .sidebar {
     background-color: var(--base-overlay) !important;
-    backdrop-filter: blur(var(--base-blur)) !important;
     border: none !important;
 }
 
@@ -169,7 +173,7 @@ body > .container-fluid {
     overflow: hidden;
     z-index: 1050;
 
-    /* Frosted glass effect (doesn't really work) */
+    /* Doesn't work but is required */
     backdrop-filter: blur(var(--base-blur));
     -webkit-backdrop-filter: blur(var(--base-blur));
 }
@@ -224,6 +228,15 @@ body > .container-fluid {
     border-color: var(--border-color);
 }
 
+.dropdown-menu {
+    animation: slideUp 200ms ease-out forwards;
+    overflow: hidden;
+}
+
+.dropdown.show .dropdown-menu {
+    animation: slideDown 200ms ease-in forwards;
+}
+
 /* fallback */
 @supports not (backdrop-filter: blur(1px)) {
     .dropdown-menu {
@@ -253,7 +266,12 @@ body > .container-fluid {
     border-color: var(--base-color);
 }
 
+a.card.card--home {
+    transition: all 0.2s ease;
+}
+
 a.card.card--home:hover {
+    background-color: rgba(var(--overlay-color), calc(var(--overlay-opacity) + 0.1)) !important;
     filter: brightness(1.2);
 }
 
@@ -302,12 +320,25 @@ a.card.card--home:hover {
 }
 
 /* Input fields */
-.form-control, .ms-selectable, .ms-selection, .ms-container *:not(.ms-hover):not(span):not(.bg-mod):not(.bg-dlc),
+.form-control, .ms-selectable, .ms-selection,
 .select2-selection, .select2-dropdown, .select2-dropdown input.select2-search__field {
     background-color: var(--base-overlay) !important;
     border: var(--base-border);
     border-radius: var(--border-radius);
     box-shadow: none !important;
+}
+
+.ms-container *:not(.ms-hover):not(span):not(.bg-mod):not(.bg-dlc) {
+    background-color: var(--base-overlay) !important;
+    border-radius: var(--border-radius);
+}
+.ms-selection .ms-list {
+    border-radius: var(--border-radius);
+    border-width: 2px;
+}
+
+.ms-elem-selectable *:not(.ms-hover):not(span):not(.bg-mod):not(.bg-dlc) {
+    background-color: transparent !important;
 }
 
 .ms-list > li {
@@ -316,10 +347,15 @@ a.card.card--home:hover {
     box-shadow: none !important;
 }
 
+.ms-container .ms-selectable li.ms-hover, .ms-container .ms-selection li.ms-hover {
+    background-color: rgba(var(--primary-color), calc(var(--overlay-opacity) + 0.2)) !important;
+}
+
 .select2-container--bootstrap4 .select2-dropdown {
     background-color: var(--base-overlay) !important;
     border: var(--base-border);
     backdrop-filter: blur(var(--base-blur));
+    transition: all var(--animation-speed) ease;
 }
 
 .select2-container--bootstrap4 .select2-results__option--highlighted,
@@ -333,9 +369,40 @@ a.card.card--home:hover {
     background-color: rgba(var(--overlay-color), calc(var(--overlay-opacity) + 0.1)) !important;
 }
 
-.select2-container--bootstrap4 .select2-selection--single .select2-selection__rendered,
-.select2-container--bootstrap4 .select2-selection {
+.select2-container--bootstrap4 .select2-selection--single .select2-selection__rendered {
+    border: none;
+}
+
+.select2-container--bootstrap4:not(.select2-container--open) .select2-selection {
     border: var(--base-border);
+}
+
+.select2-container--bootstrap4 .select2-selection {
+    border-color: rgba(var(--overlay-color), calc(var(--overlay-opacity) + 0.1)) !important;
+}
+
+.select2-container--open .select2-selection {
+    background-color: var(--base-overlay) !important;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+.select2-container--bootstrap4 .select2-results__option {
+    transition: background-color var(--animation-speed) ease;
+}
+
+.select2-container--bootstrap4 .select2-dropdown {
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+}
+
+.select2-container--bootstrap4.select2-container--open .select2-dropdown {
+    animation: slideDown calc(var(--animation-speed) * 2) forwards ease-out;
+}
+
+.select2-container--bootstrap4:not(.select2-container--open) .select2-dropdown {
+    animation: slideUp calc(var(--animation-speed) * 2) forwards ease-in;
 }
 
 select option {
@@ -426,6 +493,14 @@ select.form-control:focus {
     display: none;
 }
 
+/* Cookies */
+.cookie-banner {
+    background-color: var(--base-overlay);
+    border: var(--base-border);
+    border-radius: var(--border-radius);
+    backdrop-filter: blur(var(--base-blur));
+}
+
 /* Random borders */
 hr, .border-left {
     border-color: var(--border-color) !important;
@@ -501,4 +576,27 @@ pre {
 
 .road-temp-wrapper, .ambient-temp-wrapper {
     border-radius: 12px;
+}
+
+/* Animations */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        max-height: 0;
+    }
+    to {
+        opacity: 1;
+        max-height: 500px; /* Adjust based on your dropdown content */
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 1;
+        max-height: 500px;
+    }
+    to {
+        opacity: 0;
+        max-height: 0;
+    }
 }

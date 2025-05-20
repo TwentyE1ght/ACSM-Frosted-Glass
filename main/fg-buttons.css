@@ -1,6 +1,7 @@
 .btn, .btn:hover, .btn:active {
     border: none !important;
     border-radius: 30px;
+    transition: all var(--animation-speed) ease;
 }
 
 .btn:not(.disabled):hover {
@@ -14,13 +15,15 @@
 }
 
 .btn-primary {
+    background-color: var(--base-color) !important;
     border-color: var(--base-color);
     border: none !important;
 }
 
 .btn-primary:hover, .btn-primary:active {
+    background-color: var(--base-color) !important;
     border-color: var(--base-color) !important;
-    filter: brightness(1.1) !important;
+    filter: brightness(0.8) !important;
 }
 
 .btn-secondary {
@@ -49,10 +52,6 @@
 
 .btn-dark {
     border-color: #343a40;
-}
-
-.form-control {
-    border-radius: 30px !important;
 }
 
 /* Sidebar */
