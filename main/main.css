@@ -317,6 +317,15 @@ a.card.card--home:hover {
     transition: all var(--animation-speed) ease;
 }
 
+.card-footer:last-child {
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+}
+
+.card-footer {
+    background-color: transparent;
+    border-top: var(--base-border);
+}
+
 /* Lists */
 .list-group-item, .list-group-item:hover {
     background: transparent;
@@ -498,7 +507,6 @@ select.form-control:focus {
 }
 
 /* Note Editor */
-
 .note-editor.note-frame, .note-editor.note-airframe {
     background-color: var(--base-overlay);
     border: var(--base-border);
