@@ -55,7 +55,7 @@
 }
 
 /* Sidebar */
-.sidebar .nav-pills .nav-link.active {
+.sidebar .nav-pills .nav-link {
     border-radius: 30px;
 }
 

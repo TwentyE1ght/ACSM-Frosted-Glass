@@ -7,7 +7,7 @@
     --border-thickness: 1px;
     --icon-color: 173, 127, 218;
     --dropdown-bg-opacity: 0.2;
-    --animation-speed: 0.1s;
+    --animation-speed: 0.2s;
 
     /* Background Variables*/
     --bg-img: url("https://twentye1ght.github.io/ACSM-Frosted-Glass/main/default-bg.jpg");
@@ -24,7 +24,6 @@
     --card-icon: rgb(var(--icon-color));
     --dropdown-bg-color: rgba(var(--overlay-color), var(--dropdown-bg-opacity));
     --text-color: #eeeeee;
-    --text-color-hover: #fff;
 }
 
 /* Body */
@@ -70,6 +69,10 @@ code {
 .badge {
     position: relative;
     bottom: 2px;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    transition: all var(--animation-speed) ease;
 }
 
 /* Container */
@@ -122,10 +125,16 @@ body > .container-fluid {
     top: 60px;
 }
 
-.sidebar .nav-pills .nav-link.active {
-    color: #fff;
-    background-color: var(--base-color);
+.sidebar .nav-pills .nav-link {
+    background-color: transparent;
+    color: var(--text-color);
     border-radius: var(--border-radius);
+    transition: background-color var(--animation-speed) ease, color var(--animation-speed) ease;
+}
+
+.sidebar .nav-pills .nav-link.active {
+    color: var(--text-color);
+    background-color: var(--base-color);
 }
 
 /* Modal */
@@ -150,7 +159,7 @@ body > .container-fluid {
 }
 
 .nav-tabs .nav-link {
-    color: #fff;
+    color: var(--text-color);
 }
 
 .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
@@ -209,7 +218,7 @@ body > .container-fluid {
     position: relative;
     z-index: 2;
     padding: 8px 16px;
-    transition: all 0.2s ease;
+    transition: all var(--animation-speed) ease;
 }
 
 .dropdown-item:first-child {
@@ -229,12 +238,12 @@ body > .container-fluid {
 }
 
 .dropdown-menu {
-    animation: slideUp 200ms ease-out forwards;
+    animation: slideUp var(--animation-speed) ease-out forwards;
     overflow: hidden;
 }
 
 .dropdown.show .dropdown-menu {
-    animation: slideDown 200ms ease-in forwards;
+    animation: slideDown var(--animation-speed) ease-in forwards;
 }
 
 /* fallback */
@@ -267,7 +276,7 @@ body > .container-fluid {
 }
 
 a.card.card--home {
-    transition: all 0.2s ease;
+    transition: all var(--animation-speed) ease;
 }
 
 a.card.card--home:hover {
@@ -279,6 +288,23 @@ a.card.card--home:hover {
     background-color: var(--base-overlay);
     border: var(--base-border);
     border-radius: var(--border-radius);
+}
+
+.card-car h3, .card-track h3 {
+    color: var(--base-color);
+}
+
+.car-wrapper:hover h3, .track-wrapper:hover h3 {
+    color: var(--base-color);
+}
+
+.car-wrapper:hover img, .track-wrapper:hover img, .car-wrapper:hover h3, .track-wrapper:hover h3,
+.car-wrapper:hover .badge, .track-wrapper:hover .badge {
+    filter: brightness(1.2);
+}
+
+.card-car h3, .card-track h3, .car-wrapper img, .track-wrapper img, .car-wrapper .badge, .track-wrapper .badge {
+    transition: all var(--animation-speed) ease;
 }
 
 /* Lists */
@@ -294,7 +320,7 @@ a.card.card--home:hover {
 }
 
 .table-secondary {
-    color: #fff;
+    color: var(--text-color);
 }
 
 .table thead th {
@@ -317,6 +343,13 @@ a.card.card--home:hover {
 
 .driver-link:hover, .row-link:hover, a:not(.btn):not(.nav-link):not(.navbar-brand):not(.dropdown-item):not(.text-white):not(.text-danger):not(.fc-event):not(.page-link) {
     color: var(--card-icon) !important;
+}
+
+.scroll-bottom {
+    background-color: var(--base-overlay) !important;
+    border: var(--base-border);
+    border-radius: var(--border-radius) !important;
+    backdrop-filter: blur(var(--base-blur));
 }
 
 /* Input fields */
@@ -365,7 +398,7 @@ a.card.card--home:hover {
 }
 
 .select2-container--bootstrap4 .select2-dropdown .select2-results__option[aria-selected="true"] {
-    color: #fff !important;
+    color: var(--text-color) !important;
     background-color: rgba(var(--overlay-color), calc(var(--overlay-opacity) + 0.1)) !important;
 }
 
@@ -430,12 +463,19 @@ select.form-control:focus {
 .custom-file-label::after {
     background-color: var(--base-overlay);
     border-radius: 0 var(--border-radius) var(--border-radius) 0;
-    color: #fff !important;
+    color: var(--text-color) !important;
 }
 
 .custom-control-label::before {
     background-color: var(--base-overlay);
     border: var(--base-border);
+    transition: all var(--animation-speed) ease;
+}
+
+.custom-control-input:not(:disabled):active ~ .custom-control-label::before {
+    background-color: var(--base-color) !important;
+    border: var(--base-color) !important;
+    filter: brightness(1.2) !important;
 }
 
 .custom-switch .custom-control-label::after {
@@ -468,7 +508,7 @@ select.form-control:focus {
 .note-editor.note-frame .note-editing-area .note-editable,
 .note-editor.note-airframe .note-editing-area .note-editable {
     background-color: transparent;
-    color: #fff;
+    color: var(--text-color);
 }
 
 .note-editor.note-frame .note-statusbar .note-resizebar, .note-editor.note-airframe .note-statusbar .note-resizebar {
@@ -478,14 +518,14 @@ select.form-control:focus {
 }
 
 .note-popover .popover-content .note-dropdown-menu.note-check a i, .note-toolbar .note-dropdown-menu.note-check a i {
-    color: #fff !important;
+    color: var(--text-color) !important;
     visibility: unset;
 }
 
 .note-toolbar .note-btn {
     background: var(--base-overlay);
     border: var(--base-border);
-    color: #fff;
+    color: var(--text-color);
     font-weight: 500;
 }
 
@@ -499,45 +539,12 @@ select.form-control:focus {
     border: var(--base-border);
     border-radius: var(--border-radius);
     backdrop-filter: blur(var(--base-blur));
+    color: var(--text-color);
 }
 
 /* Random borders */
 hr, .border-left {
     border-color: var(--border-color) !important;
-}
-
-/* Scrollbars */
-* {
-    --sb-track-color: rgba(0, 0, 0, 0);
-    --sb-thumb-color: var(--base-overlay);
-    --sb-size: 8px;
-}
-
-*::-webkit-scrollbar {
-    width: var(--sb-size);
-}
-
-*::-webkit-scrollbar-track {
-    background: var(--sb-track-color);
-    border-radius: 10px;
-}
-
-*::-webkit-scrollbar-thumb {
-    background: var(--sb-thumb-color);
-    border-radius: 10px;
-    border: 2px solid rgba(0, 0, 0, 0);
-}
-
-*::-webkit-resizer {
-    background-color: var(--sb-track-color);
-    color: var(--sb-track-color);
-    border-radius: 10px;
-}
-
-@supports not selector(::-webkit-scrollbar) {
-    * {
-        scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
-    }
 }
 
 /* Badges */
@@ -576,6 +583,50 @@ pre {
 
 .road-temp-wrapper, .ambient-temp-wrapper {
     border-radius: 12px;
+}
+
+/* Scrollbar */
+/* Transparent Scrollbars for all elements */
+* {
+    --sb-track-color: transparent;
+    --sb-thumb-color: rgba(var(--overlay-color), 0.2);
+    --sb-size: 8px;
+}
+
+*::-webkit-scrollbar {
+    width: var(--sb-size);
+    height: var(--sb-size);
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--sb-track-color);
+    border-radius: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+    border-radius: 10px;
+    border: 2px solid var(--sb-track-color);
+}
+
+::-webkit-resizer {
+    border: 6px solid var(--base-color);
+    border-radius: var(--border-radius);
+    background: var(--base-color);
+    box-shadow: none;
+    outline: var(--base-border);
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: rgba(var(--overlay-color), calc(var(--overlay-opacity) * 4));
+}
+
+/* Fallback for non-WebKit browsers */
+@supports not selector(::-webkit-scrollbar) {
+    * {
+        scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+        scrollbar-width: thin;
+    }
 }
 
 /* Animations */
