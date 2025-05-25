@@ -234,12 +234,12 @@ body > .container-fluid {
     border-color: var(--border-color);
 }
 
-.dropdown-menu {
+.dropdown:not(.btn-group) > .dropdown-menu {
     animation: slideUp var(--animation-speed) ease-out forwards;
     overflow: hidden;
 }
 
-.dropdown.show .dropdown-menu {
+.dropdown.show:not(.btn-group) > .dropdown-menu {
     animation: slideDown var(--animation-speed) ease-in forwards;
 }
 
