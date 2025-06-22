@@ -263,7 +263,7 @@ body > .container-fluid {
 }
 
 .multiserver-dropdown .multiserver:hover {
-    background-color: rgba(var(--base-overlay));
+    background-color: var(--base-overlay);
     filter: brightness(1.2);
 }
 
