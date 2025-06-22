@@ -112,6 +112,19 @@ body > .container-fluid {
     border-radius: 0 !important;
 }
 
+/* Page Buttons */
+.page-link, .page-item.disabled .page-link {
+    color: var(--text-color);
+    background-color: rgba(var(--primary-color), 0.8);
+    border: var(--base-border) !important;
+    transition: background-color var(--animation-speed) ease, filter var(--animation-speed) ease;
+}
+
+.page-link:hover {
+    background-color: rgba(var(--primary-color), 1);
+    filter: brightness(1.2);
+}
+
 /* Sidebar */
 .sidebar {
     background-color: var(--base-overlay) !important;
@@ -241,6 +254,17 @@ body > .container-fluid {
 
 .dropdown.show:not(.btn-group) > .dropdown-menu {
     animation: slideDown var(--animation-speed) ease-in forwards;
+}
+
+.multiserver-dropdown .multiserver {
+    margin: 0;
+    border: none;
+    transition: background-color var(--animation-speed) ease, filter var(--animation-speed) ease;
+}
+
+.multiserver-dropdown .multiserver:hover {
+    background-color: rgba(var(--base-overlay));
+    filter: brightness(1.2);
 }
 
 /* fallback */
@@ -549,6 +573,15 @@ select.form-control:focus {
 
 .note-icon-menu-check::before {
     display: none;
+}
+
+.note-editor.note-frame .note-statusbar {
+    background-color: var(--base-overlay);
+    border: none !important;
+}
+
+.note-editor.note-frame .note-status-output, .note-editor.note-airframe .note-status-output {
+    border: var(--base-border) !important;
 }
 
 /* Cookies */
